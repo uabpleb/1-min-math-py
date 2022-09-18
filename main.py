@@ -1,18 +1,15 @@
-import asyncio
-import time
 import random
+from src.clock_thread import ClockThread
 import src.operation as op
-import threading
 
 MATH_OPERATORS = ['+', '-', '*']
 
 def main():
-    done = [False]
-    timer_thread = threading.Thread(target=clock, args=(done,))
-    timer_thread.start()
+    clock = ClockThread(5)
+    clock.start()
 
     correct = 0
-    while not done[0]:
+    while not clock.done():
         operation = next_op()
         operation.show()
         response = input("")
@@ -21,14 +18,8 @@ def main():
             correct += 1
         else:
             print("Wrong answer!")
-    print("Correct answers: " + str(correct))
         
-
-def clock(done)->None:
-    print("starting clock...")
-    time.sleep(10)
-    done[0] = True
-    print("finished clock.")
+    print("Correct answers: " + str(correct))
 
 def next_op() -> op.Operation:
     op1 = random.randint(0, 10)
