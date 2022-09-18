@@ -4,32 +4,29 @@ import random
 import operation as op
 import threading
 
-MATH_OPERATORS = ['+', '-', '*', '/']
+MATH_OPERATORS = ['+', '-', '*']
 
 def main():
     done = [False]
     timer_thread = threading.Thread(target=clock, args=(done,))
-    #done = await clock()   
     timer_thread.start()
 
     correct = 0
     while not done[0]:
-        """
         operation = next_op()
         operation.show()
-        response = input("\n")
+        response = input("")
 
         if float(response) == float(operation.perform()):
             correct += 1
-        """
-        input("trying: ")
-        correct += 1
+        else:
+            print("Wrong answer!")
     print("Correct answers: " + str(correct))
         
 
 def clock(done)->None:
     print("starting clock...")
-    time.sleep(5)
+    time.sleep(10)
     done[0] = True
     print("finished clock.")
 
@@ -42,5 +39,4 @@ def next_op() -> op.Operation:
 
 
 if __name__ == "__main__":
-    #asyncio.run(main())
     main()

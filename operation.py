@@ -18,4 +18,4 @@ class Operation:
             raise Exception("bad operator")
     
     def show(self):
-        print(str(self.op1) + self.operator + str(self.op2))
+        print(str(self.op1) + self.operator + str(self.op2) + " = ")
