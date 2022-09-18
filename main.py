@@ -1,4 +1,5 @@
 import random
+import time
 from src.clock_thread import ClockThread
 import src.operation as op
 
@@ -17,7 +18,9 @@ def main():
         if float(response) == float(operation.perform()):
             correct += 1
         else:
-            print("Wrong answer!")
+            print("Wrong answer!", end=" ")
+        print("Time remaining: " + str(clock.remaining()))
+
         
     print("Correct answers: " + str(correct))
 
