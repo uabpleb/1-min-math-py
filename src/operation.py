@@ -1,4 +1,8 @@
 
+from functools import reduce
+import math
+
+
 class Operation:
     def __init__(self, op1, op2, operator):
         self.op1 = op1
