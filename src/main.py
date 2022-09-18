@@ -1,7 +1,7 @@
 import asyncio
 import time
 import random
-import operation as op
+import src.operation as op
 import threading
 
 MATH_OPERATORS = ['+', '-', '*']
